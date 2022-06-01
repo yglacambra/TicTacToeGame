@@ -137,17 +137,23 @@
             // 
             // TxtBoxPlyr2Name
             // 
-            this.TxtBoxPlyr2Name.Location = new System.Drawing.Point(477, 39);
+            this.TxtBoxPlyr2Name.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TxtBoxPlyr2Name.ForeColor = System.Drawing.Color.Yellow;
+            this.TxtBoxPlyr2Name.Location = new System.Drawing.Point(469, 39);
             this.TxtBoxPlyr2Name.Name = "TxtBoxPlyr2Name";
-            this.TxtBoxPlyr2Name.Size = new System.Drawing.Size(154, 23);
+            this.TxtBoxPlyr2Name.Size = new System.Drawing.Size(174, 36);
             this.TxtBoxPlyr2Name.TabIndex = 12;
+            this.TxtBoxPlyr2Name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtBoxPlyr2Name_KeyDown);
             // 
             // TxtBoxPlyr1Name
             // 
-            this.TxtBoxPlyr1Name.Location = new System.Drawing.Point(39, 39);
+            this.TxtBoxPlyr1Name.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TxtBoxPlyr1Name.ForeColor = System.Drawing.Color.Red;
+            this.TxtBoxPlyr1Name.Location = new System.Drawing.Point(26, 39);
             this.TxtBoxPlyr1Name.Name = "TxtBoxPlyr1Name";
-            this.TxtBoxPlyr1Name.Size = new System.Drawing.Size(154, 23);
+            this.TxtBoxPlyr1Name.Size = new System.Drawing.Size(174, 36);
             this.TxtBoxPlyr1Name.TabIndex = 13;
+            this.TxtBoxPlyr1Name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtBoxPlyr1Name_KeyDown);
             // 
             // TicTacToeGame
             // 
