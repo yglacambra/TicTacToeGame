@@ -37,7 +37,7 @@ namespace TicTacToeGame
                 BtnBotRight.Enabled = true;
             }
         }
-
+        //when you press enter after typing your name in the textbox
         private void TxtBoxPlyr1Name_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -275,7 +275,7 @@ namespace TicTacToeGame
                 MsgBoxPlayer1Wins();
             }
 
-            //horizontal checks for x
+            //horizontal checks for X
             if (BtnTopLeft.Text == "X" && BtnTopCntr.Text == "X" && BtnTopRight.Text == "X")
             {
                 MsgBoxPlayer1Wins();
@@ -289,7 +289,7 @@ namespace TicTacToeGame
                 MsgBoxPlayer1Wins();
             }
 
-            //diagonal checks for x
+            //diagonal checks for X
             if (BtnTopLeft.Text == "X" && BtnMidCntr.Text == "X" && BtnBotRight.Text == "X")
             {
                 MsgBoxPlayer1Wins();
@@ -298,12 +298,57 @@ namespace TicTacToeGame
             {
                 MsgBoxPlayer1Wins();
             }
+
+            //vertical checks for O
+            if (BtnTopLeft.Text == "O" && BtnMidLeft.Text == "O" && BtnBotLeft.Text == "O")
+            {
+                MsgBoxPlayer2Wins();
+            }
+            if (BtnTopCntr.Text == "O" && BtnMidCntr.Text == "O" && BtnBotCntr.Text == "O")
+            {
+                MsgBoxPlayer2Wins();
+            }
+            if (BtnTopRight.Text == "O" && BtnMidRight.Text == "O" && BtnBotRight.Text == "O")
+            {
+                MsgBoxPlayer2Wins();
+            }
+
+            //horizontal checks for O
+            if (BtnTopLeft.Text == "O" && BtnTopCntr.Text == "O" && BtnTopRight.Text == "O")
+            {
+                MsgBoxPlayer2Wins();
+            }
+            if (BtnMidLeft.Text == "O" && BtnMidCntr.Text == "O" && BtnMidRight.Text == "O")
+            {
+                MsgBoxPlayer2Wins();
+            }
+            if (BtnBotLeft.Text == "O" && BtnBotCntr.Text == "O" && BtnBotRight.Text == "O")
+            {
+                MsgBoxPlayer2Wins();
+            }
+
+            //diagonal checks for O
+            if (BtnTopLeft.Text == "O" && BtnMidCntr.Text == "O" && BtnBotRight.Text == "O")
+            {
+                MsgBoxPlayer2Wins();
+            }
+            if (BtnTopRight.Text == "O" && BtnMidCntr.Text == "O" && BtnBotLeft.Text == "O")
+            {
+                MsgBoxPlayer2Wins();
+            }
+
+            //To determine if there's a draw
+            if (Turn == 8)
+            {
+                MessageBox
+            }
+
         }
         private void MsgBoxPlayer1Wins()
         {
             MessageBoxButtons WinnerMsgBoxButtons = MessageBoxButtons.RetryCancel;
             string MsgPlayer1Wins = "Congrats, " + TxtBoxPlyr1Name.Text + "!" + " You Win!";
-            DialogResult MsgBoxResult = MessageBox.Show(MsgPlayer1Wins, "", WinnerMsgBoxButtons);
+            DialogResult MsgBoxResult = MessageBox.Show(MsgPlayer1Wins,"", WinnerMsgBoxButtons);
             if (MsgBoxResult == DialogResult.Retry)
             {
                 TicTacToeGame ResettedForm = new TicTacToeGame();
@@ -318,7 +363,8 @@ namespace TicTacToeGame
         private void MsgBoxPlayer2Wins()
         {
             MessageBoxButtons WinnerMsgBoxButtons = MessageBoxButtons.RetryCancel;
-            DialogResult MsgBoxResult = MessageBox.Show("Congrats," + TxtBoxPlyr2Name.Text + "!" + "You win!", "", WinnerMsgBoxButtons);
+            string MsgPlayer2Wins = "Congrats, " + TxtBoxPlyr2Name.Text + "!" + " You Win!";
+            DialogResult MsgBoxResult = MessageBox.Show(MsgPlayer2Wins, "", WinnerMsgBoxButtons);
             if (MsgBoxResult == DialogResult.Retry)
             {
                 TicTacToeGame ResettedForm = new TicTacToeGame();
