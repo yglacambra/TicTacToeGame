@@ -359,7 +359,7 @@ namespace TicTacToeGame
             //To determine if there's a draw
             if (NoWinner == true && Turn == 9)
             {
-                string DrawMsg = "It's a Draw! No one wins.";
+                string DrawMsg = "It's a draw! No one wins.";
                 MessageBoxButtons DrawMsgBoxButtons = MessageBoxButtons.RetryCancel;
                 MessageBoxIcon DrawMsgBoxIcon = MessageBoxIcon.Exclamation;
                 DialogResult MsgBoxResult = MessageBox.Show(DrawMsg, "", DrawMsgBoxButtons, DrawMsgBoxIcon);
@@ -378,7 +378,7 @@ namespace TicTacToeGame
         private void MsgBoxPlayer1Wins()
         {
             MessageBoxButtons WinnerMsgBoxButtons = MessageBoxButtons.RetryCancel;
-            string MsgPlayer1Wins = "Congrats, " + TxtBoxPlyr1Name.Text + "!" + " You Win!";
+            string MsgPlayer1Wins = "Congrats, " + TxtBoxPlyr1Name.Text + "!" + " You win!";
             DialogResult MsgBoxResult = MessageBox.Show(MsgPlayer1Wins,"", WinnerMsgBoxButtons);
             if (MsgBoxResult == DialogResult.Retry)
             {
@@ -394,7 +394,7 @@ namespace TicTacToeGame
         private void MsgBoxPlayer2Wins()
         {
             MessageBoxButtons WinnerMsgBoxButtons = MessageBoxButtons.RetryCancel;
-            string MsgPlayer2Wins = "Congrats, " + TxtBoxPlyr2Name.Text + "!" + " You Win!";
+            string MsgPlayer2Wins = "Congrats, " + TxtBoxPlyr2Name.Text + "!" + " You win!";
             DialogResult MsgBoxResult = MessageBox.Show(MsgPlayer2Wins, "", WinnerMsgBoxButtons);
             if (MsgBoxResult == DialogResult.Retry)
             {
