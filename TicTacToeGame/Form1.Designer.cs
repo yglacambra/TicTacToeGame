@@ -45,11 +45,13 @@
             // 
             // BtnTopLeft
             // 
+            this.BtnTopLeft.BackColor = System.Drawing.SystemColors.Control;
             this.BtnTopLeft.Location = new System.Drawing.Point(237, 77);
             this.BtnTopLeft.Name = "BtnTopLeft";
             this.BtnTopLeft.Size = new System.Drawing.Size(70, 71);
             this.BtnTopLeft.TabIndex = 0;
-            this.BtnTopLeft.UseVisualStyleBackColor = true;
+            this.BtnTopLeft.UseVisualStyleBackColor = false;
+            this.BtnTopLeft.Click += new System.EventHandler(this.BtnTopLeft_Click);
             // 
             // BtnTopCntr
             // 
@@ -58,6 +60,7 @@
             this.BtnTopCntr.Size = new System.Drawing.Size(70, 71);
             this.BtnTopCntr.TabIndex = 1;
             this.BtnTopCntr.UseVisualStyleBackColor = true;
+            this.BtnTopCntr.Click += new System.EventHandler(this.BtnTopCntr_Click);
             // 
             // BtnTopRight
             // 
@@ -138,7 +141,7 @@
             // TxtBoxPlyr2Name
             // 
             this.TxtBoxPlyr2Name.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TxtBoxPlyr2Name.ForeColor = System.Drawing.Color.Yellow;
+            this.TxtBoxPlyr2Name.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TxtBoxPlyr2Name.Location = new System.Drawing.Point(469, 39);
             this.TxtBoxPlyr2Name.Name = "TxtBoxPlyr2Name";
             this.TxtBoxPlyr2Name.Size = new System.Drawing.Size(174, 36);
@@ -148,7 +151,7 @@
             // TxtBoxPlyr1Name
             // 
             this.TxtBoxPlyr1Name.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TxtBoxPlyr1Name.ForeColor = System.Drawing.Color.Red;
+            this.TxtBoxPlyr1Name.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TxtBoxPlyr1Name.Location = new System.Drawing.Point(26, 39);
             this.TxtBoxPlyr1Name.Name = "TxtBoxPlyr1Name";
             this.TxtBoxPlyr1Name.Size = new System.Drawing.Size(174, 36);
