@@ -2,7 +2,7 @@ namespace TicTacToeGame
 {
     public partial class TicTacToeGame : Form
     {
-        int Turn = 0;  
+        int Turn = 0;
         public TicTacToeGame()
         {
             InitializeComponent();
@@ -20,11 +20,26 @@ namespace TicTacToeGame
                 {
                     string MessagePrompt2 = "Are you sure that the name you inputted is correct?";
                     DialogResult Result = MessageBox.Show(MessagePrompt2, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (Result == DialogResult.Yes)
+                    if (Result == DialogResult.Yes && TxtBoxPlyr2Name.Enabled == true)
                     {
                         TxtBoxPlyr1Name.Enabled = false;
                         TxtBoxPlyr1Name.TextAlign = HorizontalAlignment.Center;
                         TxtBoxPlyr1Name.BorderStyle = BorderStyle.None;
+                    }
+                    else if (Result == DialogResult.Yes)
+                    {
+                        TxtBoxPlyr1Name.Enabled = false;
+                        TxtBoxPlyr1Name.TextAlign = HorizontalAlignment.Center;
+                        TxtBoxPlyr1Name.BorderStyle = BorderStyle.None;
+                        BtnTopLeft.Enabled = true;
+                        BtnTopCntr.Enabled = true;
+                        BtnTopRight.Enabled = true;
+                        BtnMidLeft.Enabled = true;
+                        BtnMidCntr.Enabled = true;
+                        BtnMidRight.Enabled = true;
+                        BtnBotCntr.Enabled = true;
+                        BtnBotLeft.Enabled = true;
+                        BtnBotRight.Enabled = true;
                     }
                 }
             }
@@ -43,13 +58,28 @@ namespace TicTacToeGame
                 {
                     string MessagePrompt2 = "Are you sure that the name you inputted is correct?";
                     DialogResult Result = MessageBox.Show(MessagePrompt2, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (Result == DialogResult.Yes)
+                    if (Result == DialogResult.Yes && TxtBoxPlyr1Name.Enabled == true)
                     {
                         TxtBoxPlyr2Name.Enabled = false;
                         TxtBoxPlyr2Name.TextAlign = HorizontalAlignment.Center;
                         TxtBoxPlyr2Name.BorderStyle = BorderStyle.None;
                     }
-                }    
+                    else if (Result == DialogResult.Yes)
+                    {
+                        TxtBoxPlyr2Name.Enabled = false;
+                        TxtBoxPlyr2Name.TextAlign = HorizontalAlignment.Center;
+                        TxtBoxPlyr2Name.BorderStyle = BorderStyle.None;
+                        BtnTopLeft.Enabled = true;
+                        BtnTopCntr.Enabled = true;
+                        BtnTopRight.Enabled = true;
+                        BtnMidLeft.Enabled = true;
+                        BtnMidCntr.Enabled = true;
+                        BtnMidRight.Enabled = true;
+                        BtnBotCntr.Enabled = true;
+                        BtnBotLeft.Enabled = true;
+                        BtnBotRight.Enabled = true;
+                    }
+                }
             }
         }
 
@@ -59,7 +89,7 @@ namespace TicTacToeGame
             {
                 ++Turn;
                 BtnTopLeft.Text = "O";
-                BtnTopLeft.Enabled = false; 
+                BtnTopLeft.Enabled = false;
             }
             else
             {
@@ -193,6 +223,22 @@ namespace TicTacToeGame
             {
                 ++Turn;
                 BtnBotRight.Text = "X";
+                BtnBotRight.Enabled = false;
+            }
+        }
+        // code to ensure that the textboxes are filled up first before any game is started
+        private void TicTacToeGame_Load(object sender, EventArgs e)
+        {
+            if (TxtBoxPlyr1Name.Enabled == true || TxtBoxPlyr2Name.Enabled == true)
+            {
+                BtnTopLeft.Enabled = false;
+                BtnTopCntr.Enabled = false;
+                BtnTopRight.Enabled = false;
+                BtnMidLeft.Enabled = false;
+                BtnMidCntr.Enabled = false;
+                BtnMidRight.Enabled = false;
+                BtnBotCntr.Enabled = false;
+                BtnBotLeft.Enabled = false;
                 BtnBotRight.Enabled = false;
             }
         }
