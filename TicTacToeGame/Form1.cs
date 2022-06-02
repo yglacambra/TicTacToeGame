@@ -261,88 +261,117 @@ namespace TicTacToeGame
 
         private void CheckingForAWinner()
         {
+            bool NoWinner = true;
             // vertical checks for X
             if (BtnTopLeft.Text == "X" && BtnMidLeft.Text == "X" && BtnBotLeft.Text == "X")
             {
+                NoWinner = false;
                 MsgBoxPlayer1Wins();
             }
             if (BtnTopCntr.Text == "X" && BtnMidCntr.Text == "X" && BtnBotCntr.Text == "X")
             {
+                NoWinner = false;
                 MsgBoxPlayer1Wins();
             }
             if (BtnTopRight.Text == "X" && BtnMidRight.Text == "X" && BtnBotRight.Text == "X")
             {
+                NoWinner = false;
                 MsgBoxPlayer1Wins();
             }
 
             //horizontal checks for X
             if (BtnTopLeft.Text == "X" && BtnTopCntr.Text == "X" && BtnTopRight.Text == "X")
             {
+                NoWinner = false;
                 MsgBoxPlayer1Wins();
             }
             if (BtnMidLeft.Text == "X" && BtnMidCntr.Text == "X" && BtnMidRight.Text == "X")
             {
+                NoWinner = false;
                 MsgBoxPlayer1Wins();
             }
             if (BtnBotLeft.Text == "X" && BtnBotCntr.Text == "X" && BtnBotRight.Text == "X")
             {
+                NoWinner = false;
                 MsgBoxPlayer1Wins();
             }
 
             //diagonal checks for X
             if (BtnTopLeft.Text == "X" && BtnMidCntr.Text == "X" && BtnBotRight.Text == "X")
             {
+                NoWinner = false;
                 MsgBoxPlayer1Wins();
             }
             if (BtnTopRight.Text == "X" && BtnMidCntr.Text == "X" && BtnBotLeft.Text == "X")
             {
+                NoWinner = false;
                 MsgBoxPlayer1Wins();
             }
 
             //vertical checks for O
             if (BtnTopLeft.Text == "O" && BtnMidLeft.Text == "O" && BtnBotLeft.Text == "O")
             {
+                NoWinner = false;
                 MsgBoxPlayer2Wins();
             }
             if (BtnTopCntr.Text == "O" && BtnMidCntr.Text == "O" && BtnBotCntr.Text == "O")
             {
+                NoWinner = false;
                 MsgBoxPlayer2Wins();
             }
             if (BtnTopRight.Text == "O" && BtnMidRight.Text == "O" && BtnBotRight.Text == "O")
             {
+                NoWinner = false;
                 MsgBoxPlayer2Wins();
             }
 
             //horizontal checks for O
             if (BtnTopLeft.Text == "O" && BtnTopCntr.Text == "O" && BtnTopRight.Text == "O")
             {
+                NoWinner = false;
                 MsgBoxPlayer2Wins();
             }
             if (BtnMidLeft.Text == "O" && BtnMidCntr.Text == "O" && BtnMidRight.Text == "O")
             {
+                NoWinner = false;
                 MsgBoxPlayer2Wins();
             }
             if (BtnBotLeft.Text == "O" && BtnBotCntr.Text == "O" && BtnBotRight.Text == "O")
             {
+                NoWinner = false;
                 MsgBoxPlayer2Wins();
             }
 
             //diagonal checks for O
             if (BtnTopLeft.Text == "O" && BtnMidCntr.Text == "O" && BtnBotRight.Text == "O")
             {
+                NoWinner = false;
                 MsgBoxPlayer2Wins();
             }
             if (BtnTopRight.Text == "O" && BtnMidCntr.Text == "O" && BtnBotLeft.Text == "O")
             {
+                NoWinner = false;
                 MsgBoxPlayer2Wins();
             }
 
             //To determine if there's a draw
-            if (Turn == 8)
+            if (NoWinner == true && Turn == 9)
             {
-                MessageBox
+                string DrawMsg = "It's a Draw! No one wins.";
+                MessageBoxButtons DrawMsgBoxButtons = MessageBoxButtons.RetryCancel;
+                MessageBoxIcon DrawMsgBoxIcon = MessageBoxIcon.Exclamation;
+                DialogResult MsgBoxResult = MessageBox.Show(DrawMsg, "", DrawMsgBoxButtons, DrawMsgBoxIcon);
+                if (MsgBoxResult == DialogResult.Retry)
+                {
+                    TicTacToeGame ResettedForm = new TicTacToeGame();
+                    ResettedForm.Show();
+                    this.Dispose(false);
+                }
+                else
+                {
+                    this.Close();
+                }
             }
-
         }
         private void MsgBoxPlayer1Wins()
         {
