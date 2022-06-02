@@ -194,7 +194,8 @@
             this.Controls.Add(this.BtnTopLeft);
             this.MaximizeBox = false;
             this.Name = "TicTacToeGame";
-            this.Text = "TicTacToe";
+            this.ShowIcon = false;
+            this.Text = "Tic-Tac-Toe";
             this.Load += new System.EventHandler(this.TicTacToeGame_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

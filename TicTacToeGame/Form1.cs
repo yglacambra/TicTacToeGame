@@ -7,10 +7,28 @@ namespace TicTacToeGame
         {
             InitializeComponent();
         }
+
+        // code to ensure that the game cannot start when the textboxes are not filled
+        private void TicTacToeGame_Load(object sender, EventArgs e)
+        {
+            {
+                BtnTopLeft.Enabled = false;
+                BtnTopCntr.Enabled = false;
+                BtnTopRight.Enabled = false;
+                BtnMidLeft.Enabled = false;
+                BtnMidCntr.Enabled = false;
+                BtnMidRight.Enabled = false;
+                BtnBotCntr.Enabled = false;
+                BtnBotLeft.Enabled = false;
+                BtnBotRight.Enabled = false;
+            }
+        }
+
         private void TxtBoxPlyr1Name_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
+                //when the characters inputted exceed 10
                 if (TxtBoxPlyr1Name.TextLength > 10)
                 {
                     string MessagePrompt = "Maximum amount of characters exceeded. Please shorten your name.";
@@ -90,12 +108,14 @@ namespace TicTacToeGame
                 ++Turn;
                 BtnTopLeft.Text = "O";
                 BtnTopLeft.Enabled = false;
+                LookingForAWinner();
             }
             else
             {
                 ++Turn;
                 BtnTopLeft.Text = "X";
                 BtnTopLeft.Enabled = false;
+                LookingForAWinner();
             }
         }
 
@@ -112,6 +132,7 @@ namespace TicTacToeGame
                 ++Turn;
                 BtnTopCntr.Text = "X";
                 BtnTopCntr.Enabled = false;
+                LookingForAWinner();
             }
         }
 
@@ -122,12 +143,14 @@ namespace TicTacToeGame
                 ++Turn;
                 BtnTopRight.Text = "O";
                 BtnTopRight.Enabled = false;
+                LookingForAWinner();
             }
             else
             {
                 ++Turn;
                 BtnTopRight.Text = "X";
                 BtnTopRight.Enabled = false;
+                LookingForAWinner();
             }
         }
 
@@ -138,12 +161,14 @@ namespace TicTacToeGame
                 ++Turn;
                 BtnMidLeft.Text = "O";
                 BtnMidLeft.Enabled = false;
+                LookingForAWinner();
             }
             else
             {
                 ++Turn;
                 BtnMidLeft.Text = "X";
                 BtnMidLeft.Enabled = false;
+                LookingForAWinner();
             }
         }
 
@@ -154,12 +179,14 @@ namespace TicTacToeGame
                 ++Turn;
                 BtnMidCntr.Text = "O";
                 BtnMidCntr.Enabled = false;
+                LookingForAWinner();
             }
             else
             {
                 ++Turn;
                 BtnMidCntr.Text = "X";
                 BtnMidCntr.Enabled = false;
+                LookingForAWinner();
             }
         }
 
@@ -170,12 +197,14 @@ namespace TicTacToeGame
                 ++Turn;
                 BtnMidRight.Text = "O";
                 BtnMidRight.Enabled = false;
+                LookingForAWinner();
             }
             else
             {
                 ++Turn;
                 BtnMidRight.Text = "X";
                 BtnMidRight.Enabled = false;
+                LookingForAWinner();
             }
         }
 
@@ -186,12 +215,14 @@ namespace TicTacToeGame
                 ++Turn;
                 BtnBotLeft.Text = "O";
                 BtnBotLeft.Enabled = false;
+                LookingForAWinner();
             }
             else
             {
                 ++Turn;
                 BtnBotLeft.Text = "X";
                 BtnBotLeft.Enabled = false;
+                LookingForAWinner();
             }
         }
 
@@ -202,12 +233,14 @@ namespace TicTacToeGame
                 ++Turn;
                 BtnBotCntr.Text = "O";
                 BtnBotCntr.Enabled = false;
+                LookingForAWinner();
             }
             else
             {
                 ++Turn;
                 BtnBotCntr.Text = "X";
                 BtnBotCntr.Enabled = false;
+                LookingForAWinner();
             }
         }
 
@@ -218,29 +251,56 @@ namespace TicTacToeGame
                 ++Turn;
                 BtnBotRight.Text = "O";
                 BtnBotRight.Enabled = false;
+                LookingForAWinner();
             }
             else
             {
                 ++Turn;
                 BtnBotRight.Text = "X";
                 BtnBotRight.Enabled = false;
+                LookingForAWinner();
             }
         }
-        // code to ensure that the textboxes are filled up first before any game is started
-        private void TicTacToeGame_Load(object sender, EventArgs e)
+
+        private void LookingForAWinner()
         {
-            if (TxtBoxPlyr1Name.Enabled == true || TxtBoxPlyr2Name.Enabled == true)
+            // vertical checks for X
+            MessageBoxButtons WinnerMsgBoxButtons = MessageBoxButtons.RetryCancel;
+            if (BtnTopLeft.Text == "X" && BtnMidLeft.Text == "X" && BtnBotLeft.Text == "X")
             {
-                BtnTopLeft.Enabled = false;
-                BtnTopCntr.Enabled = false;
-                BtnTopRight.Enabled = false;
-                BtnMidLeft.Enabled = false;
-                BtnMidCntr.Enabled = false;
-                BtnMidRight.Enabled = false;
-                BtnBotCntr.Enabled = false;
-                BtnBotLeft.Enabled = false;
-                BtnBotRight.Enabled = false;
+                MessageBox.Show(TxtBoxPlyr1Name.Text + " wins!", "", WinnerMsgBoxButtons);
             }
+            if (BtnTopCntr.Text == "X" && BtnMidCntr.Text == "X" && BtnBotCntr.Text == "X")
+            {
+                MessageBox.Show(TxtBoxPlyr1Name.Text + " wins!", "", WinnerMsgBoxButtons);
+            }
+            if (BtnTopRight.Text == "X" && BtnMidRight.Text == "X" && BtnBotRight.Text == "X")
+            {
+                MessageBox.Show(TxtBoxPlyr1Name.Text + " wins!", "", WinnerMsgBoxButtons);
+            }
+            //horizontal checks for x
+            if (BtnTopLeft.Text == "X" && BtnTopCntr.Text == "X" && BtnTopRight.Text == "X")
+            {
+                MessageBox.Show(TxtBoxPlyr1Name.Text + " wins!", "", WinnerMsgBoxButtons);
+            }
+            if (BtnMidLeft.Text == "X" && BtnMidCntr.Text == "X" && BtnMidRight.Text == "X")
+            {
+                MessageBox.Show(TxtBoxPlyr1Name.Text + " wins!", "", WinnerMsgBoxButtons);
+            }
+            if (BtnBotLeft.Text == "X" && BtnBotCntr.Text == "X" && BtnBotRight.Text == "X")
+            {
+                MessageBox.Show(TxtBoxPlyr1Name.Text + " wins!", "", WinnerMsgBoxButtons);
+            }
+            //diagonal checks for x
+            if (BtnTopLeft.Text == "X" && BtnMidCntr.Text == "X" && BtnBotRight.Text == "X")
+            {
+                MessageBox.Show(TxtBoxPlyr1Name.Text + " wins!", "", WinnerMsgBoxButtons);
+            }
+            if (BtnTopRight.Text == "X" && BtnMidCntr.Text == "X" && BtnBotLeft.Text == "X")
+            {
+                MessageBox.Show(TxtBoxPlyr1Name.Text + " wins!", "", WinnerMsgBoxButtons);
+            }
+
         }
     }
 }
