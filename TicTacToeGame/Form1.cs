@@ -62,6 +62,7 @@ namespace TicTacToeGame
                         TxtBoxPlyr1Name.Enabled = false;
                         TxtBoxPlyr1Name.TextAlign = HorizontalAlignment.Center;
                         TxtBoxPlyr1Name.BorderStyle = BorderStyle.None;
+                        LblInstruction.Visible = false;
                         BtnEnable();
                     }
                 }
@@ -92,6 +93,7 @@ namespace TicTacToeGame
                         TxtBoxPlyr2Name.Enabled = false;
                         TxtBoxPlyr2Name.TextAlign = HorizontalAlignment.Center;
                         TxtBoxPlyr2Name.BorderStyle = BorderStyle.None;
+                        LblInstruction.Visible = false;
                         BtnEnable();
                     }
                 }
