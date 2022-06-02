@@ -23,12 +23,9 @@ namespace TicTacToeGame
                 BtnBotRight.Enabled = false;
             }
         }
-        private void TxtBoxDialogResultYes()
+        private void BtnEnable()
         {
             {
-                TxtBoxPlyr1Name.Enabled = false;
-                TxtBoxPlyr1Name.TextAlign = HorizontalAlignment.Center;
-                TxtBoxPlyr1Name.BorderStyle = BorderStyle.None;
                 BtnTopLeft.Enabled = true;
                 BtnTopCntr.Enabled = true;
                 BtnTopRight.Enabled = true;
@@ -53,16 +50,19 @@ namespace TicTacToeGame
                 else
                 {
                     string MessagePrompt2 = "Are you sure that the name you inputted is correct?";
-                    DialogResult Result = MessageBox.Show(MessagePrompt2, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (Result == DialogResult.Yes && TxtBoxPlyr2Name.Enabled == true)
+                    DialogResult MsgBoxResult = MessageBox.Show(MessagePrompt2, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (MsgBoxResult == DialogResult.Yes && TxtBoxPlyr2Name.Enabled == true)
                     {
                         TxtBoxPlyr1Name.Enabled = false;
                         TxtBoxPlyr1Name.TextAlign = HorizontalAlignment.Center;
                         TxtBoxPlyr1Name.BorderStyle = BorderStyle.None;
                     }
-                    else if (Result == DialogResult.Yes)
+                    else if (MsgBoxResult == DialogResult.Yes)
                     {
-                        TxtBoxDialogResultYes();
+                        TxtBoxPlyr1Name.Enabled = false;
+                        TxtBoxPlyr1Name.TextAlign = HorizontalAlignment.Center;
+                        TxtBoxPlyr1Name.BorderStyle = BorderStyle.None;
+                        BtnEnable();
                     }
                 }
             }
@@ -80,16 +80,19 @@ namespace TicTacToeGame
                 else
                 {
                     string MessagePrompt2 = "Are you sure that the name you inputted is correct?";
-                    DialogResult Result = MessageBox.Show(MessagePrompt2, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (Result == DialogResult.Yes && TxtBoxPlyr1Name.Enabled == true)
+                    DialogResult MsgBoxResult = MessageBox.Show(MessagePrompt2, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (MsgBoxResult == DialogResult.Yes && TxtBoxPlyr1Name.Enabled == true)
                     {
                         TxtBoxPlyr2Name.Enabled = false;
                         TxtBoxPlyr2Name.TextAlign = HorizontalAlignment.Center;
                         TxtBoxPlyr2Name.BorderStyle = BorderStyle.None;
                     }
-                    else if (Result == DialogResult.Yes)
+                    else if (MsgBoxResult == DialogResult.Yes)
                     {
-                        TxtBoxDialogResultYes();
+                        TxtBoxPlyr2Name.Enabled = false;
+                        TxtBoxPlyr2Name.TextAlign = HorizontalAlignment.Center;
+                        TxtBoxPlyr2Name.BorderStyle = BorderStyle.None;
+                        BtnEnable();
                     }
                 }
             }
@@ -297,7 +300,17 @@ namespace TicTacToeGame
         private void MsgBoxPlayer1Wins()
         {
             MessageBoxButtons WinnerMsgBoxButtons = MessageBoxButtons.RetryCancel;
-            MessageBox.Show(TxtBoxPlyr1Name.Text + " wins!", "", WinnerMsgBoxButtons);
+            DialogResult MsgBoxResult = MessageBox.Show(TxtBoxPlyr1Name.Text + " wins!", "", WinnerMsgBoxButtons);
+            if (MsgBoxResult == DialogResult.Retry)
+            {
+                TicTacToeGame ResettedForm = new TicTacToeGame();
+                ResettedForm.Show();
+                this.Dispose(false);
+            }
+            else
+            {
+                this.Close();
+            }
         }
     }
 }
