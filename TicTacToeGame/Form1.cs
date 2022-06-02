@@ -274,6 +274,7 @@ namespace TicTacToeGame
             {
                 MsgBoxPlayer1Wins();
             }
+
             //horizontal checks for x
             if (BtnTopLeft.Text == "X" && BtnTopCntr.Text == "X" && BtnTopRight.Text == "X")
             {
@@ -287,6 +288,7 @@ namespace TicTacToeGame
             {
                 MsgBoxPlayer1Wins();
             }
+
             //diagonal checks for x
             if (BtnTopLeft.Text == "X" && BtnMidCntr.Text == "X" && BtnBotRight.Text == "X")
             {
@@ -300,7 +302,23 @@ namespace TicTacToeGame
         private void MsgBoxPlayer1Wins()
         {
             MessageBoxButtons WinnerMsgBoxButtons = MessageBoxButtons.RetryCancel;
-            DialogResult MsgBoxResult = MessageBox.Show(TxtBoxPlyr1Name.Text + " wins!", "", WinnerMsgBoxButtons);
+            string MsgPlayer1Wins = "Congrats, " + TxtBoxPlyr1Name.Text + "!" + " You Win!";
+            DialogResult MsgBoxResult = MessageBox.Show(MsgPlayer1Wins, "", WinnerMsgBoxButtons);
+            if (MsgBoxResult == DialogResult.Retry)
+            {
+                TicTacToeGame ResettedForm = new TicTacToeGame();
+                ResettedForm.Show();
+                this.Dispose(false);
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+        private void MsgBoxPlayer2Wins()
+        {
+            MessageBoxButtons WinnerMsgBoxButtons = MessageBoxButtons.RetryCancel;
+            DialogResult MsgBoxResult = MessageBox.Show("Congrats," + TxtBoxPlyr2Name.Text + "!" + "You win!", "", WinnerMsgBoxButtons);
             if (MsgBoxResult == DialogResult.Retry)
             {
                 TicTacToeGame ResettedForm = new TicTacToeGame();
